@@ -69,6 +69,7 @@
     <Content Include="audio.png" />
     <Content Include="confirmation.html" />
     <Content Include="coordos.html" />
+    <Content Include="favicon.ico" />
     <Content Include="index_michel.html" />
     <Content Include="multimedia.html" />
     <Content Include="packages.config" />
