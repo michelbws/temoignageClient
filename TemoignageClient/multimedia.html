@@ -14,7 +14,7 @@
 
   <h2>Sélectionner le ou les média(s) à nous envoyer</h2>
               <label for="fileUpload"/>
-            <input type="file" id="fileUpload" name="image" accept="image/*" capture style="display:none"/>
+            <input type="file" id="fileUpload" name="image" accept="image/*" capture style="display:none" onchange="UploadImage()"/>
 <img src="photo.png" id="fileUpload" alt="Soumettre une photo" height="60" width="60" style="cursor:pointer"/>&nbsp&nbsp&nbsp
             <input type="file" id="fileUpload" name="video" accept="video/*" capture style="display:none"/>
 <img src="video.png" id="fileUpload" alt="Soumettre une vidéo" height="60" width="60" style="cursor:pointer"/>&nbsp&nbsp&nbsp
@@ -27,4 +27,43 @@
                      <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000"><br>
         </div>
 </body>
-</html>  
+</html>
+
+
+
+<script>
+    function UploadImage()
+    {
+
+        debugger;
+        var data = new FormData();
+
+        var files = jQuery("#avatar").get(0).files;
+
+        if (files.length > 0) {
+            data.append("avatar", files[0]);
+        }
+
+        var ajaxRequest = jQuery.ajax({
+            type: "POST",
+            url: "https://dev-rli-services.radio-canada.ca/id/v3/avatar/upload-avatar?rcid=46CA97E7-44CA-4176-843D-2CD1B640DB41",
+            contentType: false,
+            processData: false,
+            data: data,
+            success: function (data) {
+                jQuery("#imageUpload")[0].src = data;
+                jQuery("#imageUpload")[0].show();
+                alert('succes');
+            },
+            error: function (data) {
+                alert('error');
+            }
+        });
+
+        ajaxRequest.done(function (xhr, textStatus) {
+            // Do other operation
+        });
+
+
+    }
+</script>  
