@@ -21,13 +21,13 @@
         <label for="fileUpload" />
 
         <input type="file" id="fileUpload" name="image" accept="image/*" capture style="display:none" onchange="UploadImage()" />
-        <button class="btnPhoto" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btnPhoto" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button><span class="spacer" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
         <input type="file" id="fileUpload" name="video" accept="video/*" capture style="display:none" />
-        <button class="btnVideo" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btnVideo" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button><span class="spacer" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
         <input type="file" id="fileUpload" name="audio" accept="audio/*" capture style="display:none" />
-        <button class="btnAudio" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btnAudio" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button><span class="spacer" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <br>
         <br />
         <div id="messageErrorImage" class="messageErrorContainer" style="display:none"></div>    
@@ -91,6 +91,8 @@
    .focusable:focus {
     border: 5px solid #900;
 }
+
+  
 </style>
 
 <script>
