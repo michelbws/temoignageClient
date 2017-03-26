@@ -15,20 +15,28 @@
 <h1>Je suis témoin</h1>
 <h2>Vos coordonnées</h2>
 <form autocomplete="on">
-            <strong>Prénom :</strong><br>
-            <input type="text" name="firstname" id="firstname">
-    <div id="messageErrorFirstname" class="messageErrorContainer" style="display:none"></div>    
+    <label for="firstname">
+        <strong>Prénom :</strong><br>
+        <input type="text" name="firstname" id="firstname">
+        <div id="messageErrorFirstname" class="messageErrorContainer" style="display:none"></div>
+    </label>   
     <br>
-            <strong>Nom :</strong><br>
-            <input type="text" name="lastname" id="lastname">
-    <div id="messageErrorLastname" class="messageErrorContainer" style="display:none"></div>    
+    <label for="lastname">
+        <strong>Nom :</strong><br>
+        <input type="text" name="lastname" id="lastname">
+        <div id="messageErrorLastname" class="messageErrorContainer" style="display:none"></div>
+    </label>
     <br>
-           <strong>Courriel :</strong><br>
-            <input type="email" name="email" id="email"><br>
-
-            <strong>Téléphone :</strong><br>
-            <input type="phone" name="phone" id="phone">
-    <div id="messageErrorPhone" class="messageErrorContainer" style="display:none"></div>    
+    <label for="email">
+        <strong>Courriel :</strong><br>
+        <input type="email" name="email" id="email"><br>
+        </label>
+    <br />
+    <label for="phone">
+        <strong>Téléphone :</strong><br>
+        <input type="phone" name="phone" id="phone">
+        <div id="messageErrorPhone" class="messageErrorContainer" style="display:none"></div>
+    </label> 
     <br><br>
 
                                  <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
@@ -47,7 +55,6 @@
         padding-bottom: 10px;
         padding-left: 10px;
         padding-right: 10px;
-        width:20%;
         margin-top:15px;
     }
 </style>
@@ -73,18 +80,21 @@
         {
             document.getElementById('messageErrorFirstname').style.display = 'block';
             document.getElementById('messageErrorFirstname').innerHTML = 'Merci de saisir votre prénom';
+            document.getElementById('firstname').focus();
             return false;
         }
 
         if (document.getElementById('lastname').value == '') {
             document.getElementById('messageErrorLastname').style.display = 'block';
             document.getElementById('messageErrorLastname').innerHTML = 'Merci de saisir votre nom';
+            document.getElementById('lastname').focus();
             return false;
         }
 
         if (document.getElementById('phone').value == '') {
             document.getElementById('messageErrorPhone').style.display = 'block';
             document.getElementById('messageErrorPhone').innerHTML = 'Merci de rentrer votre téléphone';
+            document.getElementById('phone').focus();
             return false;
         }
 
