@@ -28,6 +28,10 @@
         <br>
         <br />
         <div id="messageErrorImage" class="messageErrorContainer" style="display:none"></div>
+
+        <div id="messageErrorImage" class="messageErrorContainer">Ceci est le code tou.tv</div>
+
+        <div id="messageErrorImage" class="messageErrorContainer2">Ceci est le code explora</div>
         <br />
         <img src="" id="imageUpload" width="100" style="display:none" />
         <h2>Racontez-nous ce qui se passe</h2>
@@ -46,7 +50,20 @@
     .messageErrorContainer
     {
         color:white;
-        background-color:blue;
+        /*background-color:#05A7AF;*/
+        background-color:#009CDE;
+        font-size:22px;
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+    }   
+
+    .messageErrorContainer2
+    {
+        color:white;
+        /*background-color:#05A7AF;*/
+        background-color:#009CDE;
         font-size:22px;
         padding-top:10px;
         padding-bottom:10px;
@@ -81,7 +98,7 @@
         {
             
             document.getElementById('messageErrorImage').style.display = 'block';
-            document.getElementById('messageErrorImage').innerHTML = 'Merci de joindre votre témoignage';
+            document.getElementById('messageErrorImage').innerHTML = 'Témoignage manquant: SVP joindre votre témoignage';
 
             return false;
         }
@@ -89,7 +106,7 @@
         if (document.getElementById('subject').value == '') {
 
             document.getElementById('messageErrorDescription').style.display = 'block';
-            document.getElementById('messageErrorDescription').innerHTML = 'SVP de décrire brièvement votre témoignage';
+            document.getElementById('messageErrorDescription').innerHTML = 'Intitulé  manquant: SVP de décrire brièvement votre témoignage';
 
             return false;
         }
