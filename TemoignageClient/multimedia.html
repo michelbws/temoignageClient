@@ -3,7 +3,6 @@
 <head>
     <title>Je suis témoin</title>
     <meta charset="UTF-8">
-    <script src="Js/Upload.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
@@ -28,18 +27,33 @@
         <img src="audio.png" id="fileUpload" alt="Soumettre un fichier audio" height="60" style="cursor:pointer" />
         <br>
         <br />
+        <div id="messageErrorImage" class="messageErrorContainer" style="display:none"></div>
+        <br />
         <img src="" id="imageUpload" width="100" style="display:none" />
         <h2>Racontez-nous ce qui se passe</h2>
         <strong>Qui? Quoi? Où? Quand? Comment? Pourquoi?</strong><br>
 
         <textarea name="subject" id="subject" cols="50" rows="5"></textarea>
+        <div id="messageErrorDescription" class="messageErrorContainer" style="display:none"></div>
+
         <br />
-                     <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
+        <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
         </div>
 </body>
 </html>
 
-
+<style>
+    .messageErrorContainer
+    {
+        color:white;
+        background-color:blue;
+        font-size:22px;
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+    }   
+</style>
 
 <script>
     
@@ -60,11 +74,35 @@
 
     function ValidForm()
     {
+        document.getElementById('messageErrorImage').style.display = 'none';
+        document.getElementById('messageErrorDescription').style.display = 'none';
+
+        if (jQuery("#fileUpload").get(0).files.length  == 0)
+        {
+            
+            document.getElementById('messageErrorImage').style.display = 'block';
+            document.getElementById('messageErrorImage').innerHTML = 'Merci de joindre votre témoignage';
+
+            return false;
+        }
+
+        if (document.getElementById('subject').value == '') {
+
+            document.getElementById('messageErrorDescription').style.display = 'block';
+            document.getElementById('messageErrorDescription').innerHTML = 'SVP de décrire brièvement votre témoignage';
+
+            return false;
+        }
+
         return true;
     }
 
     function UploadImage()
     {
+        document.getElementById('messageErrorImage').style.display = 'none';
+        document.getElementById('messageErrorDescription').style.display = 'none';
+
+
         var data = new FormData();
 
         var files = jQuery("#fileUpload").get(0).files;
