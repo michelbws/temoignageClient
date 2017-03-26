@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="audio.png" />
+    <Content Include="audio2.png" />
     <Content Include="confirmation.html" />
     <Content Include="coordos.html" />
     <Content Include="favicon.ico" />
@@ -82,9 +83,11 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="photo.png" />
+    <Content Include="photo2.png" />
     <Content Include="pizza-chargement.gif" />
     <Content Include="pizza.png" />
     <Content Include="video.png" />
+    <Content Include="video2.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
