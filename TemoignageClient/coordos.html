@@ -16,19 +16,41 @@
 <h2>Vos coordonnées</h2>
 <form autocomplete="on">
             <strong>Prénom :</strong><br>
-            <input type="text" name="firstname"><br>
+            <input type="text" name="firstname" id="firstname">
+    <div id="messageErrorFirstname" class="messageErrorContainer" style="display:none"></div>    
+    <br>
             <strong>Nom :</strong><br>
-            <input type="text" name="lastname"><br>
+            <input type="text" name="lastname" id="lastname">
+    <div id="messageErrorLastname" class="messageErrorContainer" style="display:none"></div>    
+    <br>
            <strong>Courriel :</strong><br>
-            <input type="email" name="email"><br>
+            <input type="email" name="email" id="email"><br>
+
             <strong>Téléphone :</strong><br>
-            <input type="phone" name="phone"><br><br>
+            <input type="phone" name="phone" id="phone">
+    <div id="messageErrorPhone" class="messageErrorContainer" style="display:none"></div>    
+    <br><br>
+
                                  <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
             </form>
         </div>
     </div>
 </body>
 </html>  
+
+<style>
+    .messageErrorContainer {
+        color: white;
+        background-color: #009CDE;
+        font-size: 22px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width:20%;
+        margin-top:15px;
+    }
+</style>
 
 
 <script>
@@ -43,6 +65,29 @@
 
     function ValidForm()
     {
+        document.getElementById('messageErrorFirstname').style.display = 'none';
+        document.getElementById('messageErrorLastname').style.display = 'none';
+        document.getElementById('messageErrorPhone').style.display = 'none';
+
+        if (document.getElementById('firstname').value == '')
+        {
+            document.getElementById('messageErrorFirstname').style.display = 'block';
+            document.getElementById('messageErrorFirstname').innerHTML = 'Merci de saisir votre prénom';
+            return false;
+        }
+
+        if (document.getElementById('lastname').value == '') {
+            document.getElementById('messageErrorLastname').style.display = 'block';
+            document.getElementById('messageErrorLastname').innerHTML = 'Merci de saisir votre nom';
+            return false;
+        }
+
+        if (document.getElementById('phone').value == '') {
+            document.getElementById('messageErrorPhone').style.display = 'block';
+            document.getElementById('messageErrorPhone').innerHTML = 'Merci de rentrer votre téléphone';
+            return false;
+        }
+
         return true;
     }
 
