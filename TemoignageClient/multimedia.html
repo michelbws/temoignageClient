@@ -28,7 +28,7 @@
 <img src="audio.png" id="fileUpload" alt="Soumettre un fichier audio" height="60"  style="cursor:pointer"/>
                     <br>
         <br />
-        <img src="" id="imageUpload" width="100" />
+        <img src="" id="imageUpload" width="100"  style="display:none"/>
        <h2>Racontez-nous ce qui se passe</h2>             
                     <strong>Où, quoi, qui, quand, comment, pourquoi?</strong><br>
                     <input type="text" name="subject"><br><br>
@@ -60,7 +60,8 @@
             data: data,
             success: function (data) {
                 jQuery("#imageUpload")[0].src = data;
-                jQuery("#imageUpload")[0].show();
+                //jQuery("#imageUpload")[0].show();
+                document.getElementById('imageUpload').style = "display:block";
                 alert('succes');
             },
             error: function (data) {
