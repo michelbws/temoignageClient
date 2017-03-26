@@ -19,23 +19,33 @@
 
         <h2>Envoyez-nous une photo, une vidéo ou un fichier audio</h2>
         <label for="fileUpload" />
+
         <input type="file" id="fileUpload" name="image" accept="image/*" capture style="display:none" onchange="UploadImage()" />
-        <img src="photo.png" id="fileUpload" alt="Soumettre une photo" height="60" style="cursor:pointer" />&nbsp&nbsp&nbsp
+        <button class="btnPhoto" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button>
+
+
         <input type="file" id="fileUpload" name="video" accept="video/*" capture style="display:none" />
-        <img src="video.png" id="fileUpload" alt="Soumettre une vidéo" height="60" style="cursor:pointer" />&nbsp&nbsp&nbsp
+        <button class="btnVideo" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button>
+
+
+
         <input type="file" id="fileUpload" name="audio" accept="audio/*" capture style="display:none" />
-        <img src="audio.png" id="fileUpload" alt="Soumettre un fichier audio" height="60" style="cursor:pointer" />
+        <button class="btnAudio" id="fileUpload" alt="Soumettre une photo" style="cursor:pointer" aria-label="Ajouter une image" onclick="OpenPopUp()"></button>
         <br>
         <br />
         <div id="messageErrorImage" class="messageErrorContainer" style="display:none"></div>    
         <br />
         <img src="" id="imageUpload" width="100" style="display:none" />
+
+        <img src="pizza-chargement.gif"  style="display:none" id="chargement"/>
         <h2>Racontez-nous ce qui se passe</h2>
-        <strong>Qui? Quoi? Où? Quand? Comment? Pourquoi?</strong><br>
 
-        <textarea name="subject" id="subject" cols="50" rows="5"></textarea>
-        <div id="messageErrorDescription" class="messageErrorContainer" style="display:none"></div>
+        <label for="description">
+            <strong>Qui? Quoi? Où? Quand? Comment? Pourquoi?</strong><br>
 
+            <textarea name="subject" id="subject" cols="50" rows="5"></textarea>
+            <div id="messageErrorDescription" class="messageErrorContainer" style="display:none"></div>
+        </label>
         <br />
         <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Finaliser le témoignage" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
         </div>
@@ -50,13 +60,41 @@
         font-size:22px;
         padding-top:10px;
         padding-bottom:10px;
-        padding-left:10px;
+        padding-left:10px;  
         padding-right:10px;
     }   
+
+    .btnPhoto{
+        background: url('photo2.png');
+        width:80px;
+        height:69px;
+        border:none;
+    }
+
+    .btnVideo{
+        background: url('video2.png');
+        width:80px;
+        height:78px;
+        border:none;
+    }
+
+    .btnAudio{
+        background: url('audio2.png');
+        width:39px;
+        height:69px;
+        border:none;
+    }
+
+   .focusable:focus {
+    border: 5px solid #900;
+}
 </style>
 
 <script>
-    
+    function OpenPopUp()
+    {
+        jQuery("#fileUpload").click();
+    }
 
     function SendForm()
     {
@@ -101,7 +139,8 @@
     {
         document.getElementById('messageErrorImage').style.display = 'none';
         document.getElementById('messageErrorDescription').style.display = 'none';
-
+        document.getElementById('chargement').style.display = 'block';
+        document.getElementById('messageErrorImage').style.display = 'none';
 
         var data = new FormData();
 
@@ -121,9 +160,13 @@
                 jQuery("#imageUpload")[0].src = data;
                 //jQuery("#imageUpload")[0].show();
                 document.getElementById('imageUpload').style = "display:block";
+                document.getElementById('chargement').style.display = 'none';
             },
             error: function (data) {
-                    //gérer les cas d'erreurs
+                //gérer les cas d'erreurs
+                document.getElementById('chargement').style.display = 'none';
+                document.getElementById('messageErrorImage').style.display = 'block';
+                document.getElementById('messageErrorImage').innerHTML = 'Une erreur est survenue. Veuillez réessayer svp.';
             }
         });
 

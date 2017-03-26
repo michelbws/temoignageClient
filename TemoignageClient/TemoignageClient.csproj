@@ -82,6 +82,7 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="photo.png" />
+    <Content Include="pizza-chargement.gif" />
     <Content Include="pizza.png" />
     <Content Include="video.png" />
     <Content Include="Web.config" />
