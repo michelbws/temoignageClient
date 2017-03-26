@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Le temoin RC</title>
+    <title>Je suis témoin</title>
+    <meta charset="UTF-8">
     <script src="Js/Upload.js"></script>
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +16,7 @@
   <img src="pizza.png" alt="Logo de Radio-Canada" style="width:100px;height:100px;border:0;">
 <h1>Je suis témoin</h1>
 
-  <h2>Sélectionner le ou les média(s) à nous envoyer</h2>
+  <h2>Sélectionner le ou les média(s) à nous envoyer</h2>       
               <label for="fileUpload"/>
             <input type="file" id="fileUpload" name="image" accept="image/*" capture style="display:none" onchange="UploadImage()"/>
 <img src="photo.png" id="fileUpload" alt="Soumettre une photo" height="60" width="60" style="cursor:pointer"/>&nbsp&nbsp&nbsp
@@ -21,6 +25,8 @@
             <input type="file" id="fileUpload" name="audio" accept="audio/*" capture style="display:none"/>
 <img src="audio.png" id="fileUpload" alt="Soumettre un fichier audio" height="60" width="60" style="cursor:pointer"/>
                     <br>
+        <br />
+        <img src="" id="imageUpload" width="100" />
        <h2>Racontez-nous ce qui se passe</h2>             
                     <strong>Où, quoi, qui, quand, comment, pourquoi?</strong><br>
                     <input type="text" name="subject"><br><br>
@@ -38,7 +44,7 @@
         debugger;
         var data = new FormData();
 
-        var files = jQuery("#avatar").get(0).files;
+        var files = jQuery("#fileUpload").get(0).files;
 
         if (files.length > 0) {
             data.append("avatar", files[0]);
