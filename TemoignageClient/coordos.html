@@ -15,14 +15,17 @@
 <h1>Je suis témoin</h1>
 <h2>Vos coordonnées</h2>
 <form autocomplete="on">
+    <br>
+    Les champs marqués d'un<span style="color:#DD0000"> * </span>sont obligatoires.<br>
+    <br>
     <label for="firstname">
-        <strong>Prénom :</strong><br>
+        <strong>Prénom :</strong><span style="color:#DD0000"> *</span><br>
         <input type="text" name="firstname" id="firstname">
         <div id="messageErrorFirstname" class="messageErrorContainer" style="display:none"></div>
     </label>   
     <br>
     <label for="lastname">
-        <strong>Nom :</strong><br>
+        <strong>Nom :</strong><span style="color:#DD0000"> *</span><br>
         <input type="text" name="lastname" id="lastname">
         <div id="messageErrorLastname" class="messageErrorContainer" style="display:none"></div>
     </label>
@@ -33,7 +36,7 @@
         </label>
     <br />
     <label for="phone">
-        <strong>Téléphone :</strong><br>
+        <strong>Téléphone :</strong><span style="color:#DD0000"> *</span><br>
         <input type="phone" name="phone" id="phone">
         <div id="messageErrorPhone" class="messageErrorContainer" style="display:none"></div>
     </label> 
