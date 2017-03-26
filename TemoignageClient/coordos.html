@@ -23,9 +23,39 @@
             <input type="email" name="email"><br>
             <strong>Téléphone :</strong><br>
             <input type="phone" name="phone"><br><br>
-                                 <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000"><br>
+                                 <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
             </form>
         </div>
     </div>
 </body>
 </html>  
+
+
+<script>
+
+    function SendForm()
+    {
+        if(ValidForm())
+        {
+            window.location = "confirmation.html";
+        }
+    }
+
+    function ValidForm()
+    {
+        return true;
+    }
+
+    function GetCookie(c_name) {
+        var i, x, y, ARRcookies = document.cookie.split(";");
+        for (i = 0; i < ARRcookies.length; i++) {
+            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+            x = x.replace(/^\s+|\s+$/g, "");
+            if (x == c_name) {
+                return unescape(y);
+            }
+        }
+    };
+
+</script>

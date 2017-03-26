@@ -31,9 +31,9 @@
         <img src="" id="imageUpload" width="100"  style="display:none"/>
        <h2>Racontez-nous ce qui se passe</h2>             
                     <strong>Où, quoi, qui, quand, comment, pourquoi?</strong><br>
-        <textarea name="subject" cols="50" rows="5"></textarea>
+        <textarea name="subject" id="subject" cols="50" rows="5"></textarea>
         <br />
-                     <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000"><br>
+                     <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000" onclick="SendForm()"><br>
         </div>
 </body>
 </html>
@@ -41,6 +41,27 @@
 
 
 <script>
+    
+
+    function SendForm()
+    {
+        if (ValidForm())
+        {
+            var imagePath = jQuery("#imageUpload")[0].src;
+            var description = jQuery("#subject")[0].value;
+
+            SetCookie("TemoignageImagePath", imagePath);
+            SetCookie("TemoignageDescription", description);
+
+            window.location = "coordos.html";
+        }        
+    }
+
+    function ValidForm()
+    {
+        return true;
+    }
+
     function UploadImage()
     {
         var data = new FormData();
@@ -73,4 +94,22 @@
 
 
     }
+
+    function SetCookie(name, value) {
+        path = '/';
+        domain = ''
+        secondes = 24 * 60 * 60 * 1000 * 14; //2 semaines
+        var today = new Date();
+        today.setTime(today.getTime());
+        var expires = new Date(today.getTime() + (secondes));
+        var secure = "";
+
+
+        document.cookie = name + "=" + value +
+        ((expires) ? ";expires=" + expires.toGMTString() : "") +
+        ((path) ? ";path=" + path : "") +
+        ((domain) ? ";domain=" + domain : "") +
+        ((secure) ? ";secure" : "");
+    };
+
 </script>  
