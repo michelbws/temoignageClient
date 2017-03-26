@@ -31,7 +31,8 @@
         <img src="" id="imageUpload" width="100"  style="display:none"/>
        <h2>Racontez-nous ce qui se passe</h2>             
                     <strong>Où, quoi, qui, quand, comment, pourquoi?</strong><br>
-                    <input type="text" name="subject"><br><br>
+        <textarea name="subject" cols="50" rows="5"></textarea>
+        <br />
                      <input id="btnUploadFile" alt="Envoyer le fichier" type="button" value="Soumettre" style="color:#FFFFFF;background:#dd0000"><br>
         </div>
 </body>
@@ -42,8 +43,6 @@
 <script>
     function UploadImage()
     {
-
-        debugger;
         var data = new FormData();
 
         var files = jQuery("#fileUpload").get(0).files;
@@ -62,10 +61,9 @@
                 jQuery("#imageUpload")[0].src = data;
                 //jQuery("#imageUpload")[0].show();
                 document.getElementById('imageUpload').style = "display:block";
-                alert('succes');
             },
             error: function (data) {
-                alert('error');
+                    //gérer les cas d'erreurs
             }
         });
 
